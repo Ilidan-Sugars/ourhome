@@ -1,9 +1,3 @@
-
-
-
-
-import "bootstrap"
-import "magnific-popup"
-import "jquery"
-import "owl.carousel"
+import "./assets/src/scss/app.scss"
+import "./assets/src/js/app.js"
 
