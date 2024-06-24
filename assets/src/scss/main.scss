@@ -1,0 +1,17 @@
+.poster {
+    background: url(../img/main-d.png);
+    background-size: cover;
+    max-width: none;
+    background-position-y: top;
+    transition: 1s;
+    animation: move 40s infinite alternate cubic-bezier(0.25, 0.04, 0.77, 0.95);
+}
+
+@keyframes move {
+    1% {
+        background-position-y: top;
+    }
+    100%{
+        background-position-y: bottom;
+    }
+}
