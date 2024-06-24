@@ -11,9 +11,9 @@ function getRooms(date) {
         url: 'api/index.php',
         method: 'post',
         dataType: 'html',
-        data: {text: 'Текст'},
-        success: function(data){
-        alert(data);
+        data: {acion:'getrooms', date: date},
+        success: function(rooms){
+        console.log(rooms);
         }
     });
 };
