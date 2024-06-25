@@ -5,13 +5,42 @@
     background-position-y: top;
     transition: 1s;
     animation: move 40s infinite alternate cubic-bezier(0.25, 0.04, 0.77, 0.95);
+
+    &__info {
+        background: #f3ecd9;
+        border-radius: 25px;
+    }
+}
+
+#back {
+    margin: 0.25rem 0 1rem 0;
+}
+
+#box {
+
+    .box__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .under {
+            width: 100%;
+            text-align: center;
+            input {
+                padding: 2px 5px 3px 5px;
+                border: solid 1px #0d6efd;
+                border-radius: 10px;
+            }
+        }
+    }
 }
 
 @keyframes move {
     1% {
         background-position-y: top;
     }
-    100%{
+
+    100% {
         background-position-y: bottom;
     }
 }

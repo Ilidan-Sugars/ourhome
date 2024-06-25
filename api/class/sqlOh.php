@@ -16,7 +16,7 @@ class sqlOh
     public function getrooms($date)
     {
         $mysql = new mysqli($this->host, $this->login, $this->password, $this->name_bd);
-        $orders_raw = $mysql->query("SELECT rooms.* FROM orders JOIN rooms ON room = id WHERE orders.date != {$date}");
+        $orders_raw = $mysql->query("SELECT * FROM rooms WHERE id NOT IN (SELECT room FROM orders WHERE date = '$date');");
         $roomsLoc = [];
         if ($orders_raw->num_rows > 0) {
             while ($row = $orders_raw->fetch_assoc()) {
