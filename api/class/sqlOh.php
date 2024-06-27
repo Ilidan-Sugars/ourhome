@@ -24,7 +24,8 @@ class sqlOh
                     'id' => $row['id'],
                     'name' => $row['name'],
                     'url_img' => $row['url_img'],
-                    'description' => $row['description']    
+                    'description' => $row['description'],
+                    'price' => $row['price']
                 ];
             }
         }
@@ -32,7 +33,25 @@ class sqlOh
         $mysql->close();
         return $roomsLoc;
     }
-
-
+    public function getroom($room_id)
+    {
+        $mysql = new mysqli($this->host, $this->login, $this->password, $this->name_bd);
+        $orders_raw = $mysql->query("SELECT * FROM `rooms` WHERE id='$room_id';");
+        $roomsLoc = [];
+        if ($orders_raw->num_rows > 0) {
+            while ($row = $orders_raw->fetch_assoc()) {
+                $roomsLoc[] = [
+                    'id' => $row['id'],
+                    'name' => $row['name'],
+                    'url_img' => $row['url_img'],
+                    'description' => $row['description'],
+                    'price' => $row['price']
+                ];
+            }
+        }
+    
+        $mysql->close();
+        return $roomsLoc;
+    }
 }
 
