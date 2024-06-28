@@ -7,9 +7,13 @@ import 'magnific-popup'
 
 // получаем все не занетые комнаты
 
+//Переменная для сайта
+const origin = 'http://aaaaaaaaaaaaaaa.ru'
+
+
 function getRooms(date) {
     $.ajax({
-        url: 'http://ourhome/ourhome/api/index.php',
+        url: origin + '/api/index.php',
         method: 'POST',
         dataType: 'html',
         data: { action: 'getrooms', date: date },
@@ -27,7 +31,7 @@ function getRooms(date) {
 // Получаем конкретную комнату
 function getroom(room_id) {
     $.ajax({
-        url: 'http://ourhome/ourhome/api/index.php',
+        url: origin + '/api/index.php',
         method: 'POST',
         dataType: 'html',
         data: { action: 'getroom', room_id: room_id },

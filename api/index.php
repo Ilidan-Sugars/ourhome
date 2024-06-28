@@ -1,5 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: http://localhost:5173');
+$origin = 'http://aaaaaaaaaaaaaaa.ru';
+header('Access-Control-Allow-Origin: '.$origin.'');
 $action = $_POST['action'];
 include './class/sqlOh.php';
 $sqlOurhome = new sqlOh("localhost", "root", "", "ourhome");
