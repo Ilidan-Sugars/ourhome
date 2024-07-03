@@ -54,6 +54,24 @@
         top: 3px;
     }
 
+    .application {
+        top: 0 !important;
+
+        input,
+        textarea {
+            border: solid 1px #0d6efd;
+            border-radius: 10px;
+            margin: 4px 0px 4px 0px;
+            padding: 3px 10px;
+            resize: none;
+
+            &:focus-visible {
+                outline: none !important;
+                
+            }
+        }
+    }
+
     &__block {
         position: relative;
         top: -25px;
