@@ -1,0 +1,18 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Setup key
+      - run: set -eu
+      - run: mkdir -p "$HOME/.ssh"
+      - run: echo "${{ secrets.ID_RSA }}" > "$HOME/.ssh/id_rsa"
+      - run: chmod 600 "$HOME/.ssh/id_rsa"
+      
+      # Deploy
+      - run: rsync -ae "ssh -p 22 -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no" --exclude-from='.deployignore' --archive --compress --delete . u2711969@37.140.192.191:/var/www/u2711969/data/www/aaaaaaaaaaaaaaa.ru/
